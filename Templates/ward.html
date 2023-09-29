@@ -1,0 +1,52 @@
+{% extends "base.html" %}
+{% block title %}Ward{% endblock %}
+
+{% block styling %}
+<style>
+    .form-control {
+        border: none;
+        border-bottom: 2.3px solid #59cc55; /* Add an underline */
+        border-radius: 0; /* Remove any border radius */
+        outline: none; /* Remove the outline when focused */
+    }
+    .nav-item:hover {
+        color: rgb(39, 235, 98); /
+    }
+</style>
+{% endblock styling %}
+
+{% block page_content %}
+<body>
+    <div class="container mt-5">
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title text-center">Ward Information</h5>
+                        <form>
+                            <div class="form-group">
+                                <input type="text" class="form-control" id="wardId" placeholder="Ward ID">
+                            </div>
+                            <div class="form-group">
+                                <input type="text" class="form-control" id="wardName" placeholder="Ward Name">
+                            </div>
+                            <div class="form-group">
+                
+                                <input type="number" class="form-control" id="numberBeds" placeholder="Number of Beds">
+                            </div>
+                            <div class="form-group">
+                                
+                                <input type="text" class="form-control" id="nurseInCharge" placeholder="Nurse in Charge">
+                            </div>
+                            <div class="form-group">
+                                
+                                <input type="text" class="form-control" id="wardType" placeholder="Ward Type">
+                            </div>
+                            <button type="submit" class="btn btn-success btn-block">Submit</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock page_content %}
