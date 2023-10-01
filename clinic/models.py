@@ -18,6 +18,6 @@ class patient(models.Model):
     address = models.CharField(max_length = 30)
     post_code = models.CharField(max_length = 3)
     admission = models.DateField()
-    DOB = models.DateField(default = timezone.now)
+    DOB = models.DateField()
     ward_id = models.ForeignKey(ward, on_delete=models.CASCADE)
     next_of_kin = models.CharField(max_length = 30, blank = True, null = True)

@@ -9,6 +9,12 @@
         border-radius: 0; /* Remove any border radius */
         outline: none; /* Remove the outline when focused */
     }
+    .form-group {
+        margin-bottom: 2rem;
+    }
+    .card {
+    border: 2px solid #e9cdcd; /* Replace "your-color" with the desired border color */
+    }
     .nav-item:hover {
         color: rgb(39, 235, 98); /
     }
@@ -23,24 +29,21 @@
                 <div class="card">
                     <div class="card-body">
                         <h5 class="card-title text-center">Ward Information</h5>
-                        <form>
+                        <form action="" method="post">{% csrf_token %}
                             <div class="form-group">
-                                <input type="text" class="form-control" id="wardId" placeholder="Ward ID">
+                                {{ form.ward_id }}
                             </div>
                             <div class="form-group">
-                                <input type="text" class="form-control" id="wardName" placeholder="Ward Name">
+                                {{ form.ward_name }}
                             </div>
                             <div class="form-group">
-                
-                                <input type="number" class="form-control" id="numberBeds" placeholder="Number of Beds">
+                                {{ form.number_beds }}
                             </div>
                             <div class="form-group">
-                                
-                                <input type="text" class="form-control" id="nurseInCharge" placeholder="Nurse in Charge">
+                                {{ form.nurse_in_charge }}
                             </div>
                             <div class="form-group">
-                                
-                                <input type="text" class="form-control" id="wardType" placeholder="Ward Type">
+                                {{ form.ward_type }}
                             </div>
                             <button type="submit" class="btn btn-success btn-block">Submit</button>
                         </form>

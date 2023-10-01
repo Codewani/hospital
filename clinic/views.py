@@ -1,26 +1,48 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.http import HttpResponse
+from .forms import *
 
 from .models import *
 # Create your views here.
 def Patients(request, *args, **kwargs):
+    form = PatientForm()
     if request.method == 'POST':
-        patient_id = request.POST['patient_id']
-        name = request.POST['name']
-        initials = request.POST['initials']
-        sex = request.POST['sex']
-        address = request.POST['address']
-        post_code = request.POST['post_code']
-        admission = request.POST['admission']
-        DOB = request.POST['DOB']
-        ward_id = request.POST['ward_id']
-        next_of_kin = request.POST['next_of_kin']
+        print(request.POST)
+        form = PatientForm(request.POST)
+        if form.is_valid():
+            print("valid")    
+            try:  
+                form.save()  
+                return redirect('/patient')  
+            except:  
+                pass 
+        else:
+            print("not valid")  
+            form = PatientForm()  
 
-        new_patient = patient(patient_id = patient_id, name = name, initials = initials, sex = sex, address = address, post_code = post_code, admission = admission, DOB = DOB, ward_id = ward_id, next_of_kin = next_of_kin, patients = patients)
-    return render(request, "Patients.html", {})
+    wards = ward.objects.all()
+    context = {'wards':wards, 'form':form}
+    return render(request, "Patients.html", context)
 
 def Wards(request, *args, **kwargs):
-    return render(request, "ward.html", {})
+    form = WardForm()
+    if request.method == 'POST':
+        print(request.POST)
+        form = WardForm(request.POST)
+        if form.is_valid():
+            print("valid")    
+            try:  
+                form.save()  
+                return redirect('/ward')  
+            except:  
+                pass 
+        else:
+            print("not valid")  
+            form = WardForm()  
+
+    wards = ward.objects.all()
+    context = {'wards':wards, 'form':form}
+    return render(request, "ward.html", context)
 
 def viewwards(request, *args, **kwargs):
     wards = ward.objects.all()

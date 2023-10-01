@@ -15,7 +15,9 @@
                     <th>Admission</th>
                     <th>DOB</th>
                     <th>Ward ID</th>
-                    <th>Next Of Kin</th>
+                    <th>Next Of Kin</th> <!-- new column for delete button -->
+                    <th>Edit</th>
+                    <th>Delete</th>
                 </tr>
             </thead>
             <tbody>
@@ -31,6 +33,16 @@
                     <td>{{patient.DOB}}</td>
                     <td>{{patient.ward_id}}</td>
                     <td>{{patient.next_of_kin}}</td>
+                    <td>
+                        <a href="/edit/{{ patient.id }}" class="btn btn-primary btn-xs" data-toggle="tooltip" title="Edit">
+                            <i class="fas fa-pencil-alt"></i>
+                        </a>
+                    </td>
+                    <td>
+                        <a href="/delete/{{ patient.id }}" class="btn btn-danger btn-xs" data-toggle="tooltip" title="Delete">
+                            <i class="fa fa-trash"></i>
+                        </a>
+                    </td>                       
                 </tr>
                 {% endfor %}
             </tbody>
@@ -45,11 +57,12 @@
                     <th>Admission</th>
                     <th>DOB</th>
                     <th>Ward ID</th>
-                    <th>Next Of Kin</th>
+                    <th>Next Of Kin</th><!-- new column for delete button -->
+                    <th>Edit</th>
+                    <th>Delete</th>
                 </tr>
             </tfoot>
         </table>
     </div>
   </div>
-
 {% endblock page_content %}
