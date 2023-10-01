@@ -25,4 +25,8 @@ urlpatterns = [
     path('ward/', Wards, name='Wards'),
     path('viewwards/', viewwards, name='viewwards'),
     path('viewpatients/', viewpatients, name='viewpatients'),
+    path('editpatient/<str:patient_id>/', editpatient, name='editpatient'),
+    path('editward/<str:ward_id>/', editward, name='editward'),
+    path('delete/<str:patient_id>/', delete_patient, name='delete_patient'),
+    path('delete_ward/<str:ward_id>/', delete_ward, name='delete_ward'),
 ]

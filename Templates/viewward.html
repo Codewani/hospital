@@ -11,6 +11,8 @@
                     <th>Number Of Beds</th>
                     <th>Nurse In Charge</th>
                     <th>Ward Type</th>
+                    <th>Edit</th>
+                    <th>Delete</th>
                 </tr>
             </thead>
             <tbody>
@@ -21,6 +23,16 @@
                     <td>{{wards.number_beds}}</td>
                     <td>{{wards.nurse_in_charge}}</td>
                     <td>{{wards.ward_type}}</td>
+                    <td>
+                        <a href="{% url 'editward' wards.ward_id %}" class="btn btn-primary btn-xs" data-toggle="tooltip" title="Edit">
+                            <i class="fas fa-pencil-alt"></i>
+                        </a>
+                    </td>
+                    <td>
+                        <a href="/delete_ward/{{ wards.ward_id }}" class="btn btn-danger btn-xs" data-toggle="tooltip" title="Delete">
+                            <i class="fa fa-trash"></i>
+                        </a>
+                    </td>   
                 </tr>
                 {% endfor %}
             </tbody>
@@ -31,6 +43,8 @@
                     <th>Number Of Beds</th>
                     <th>Nurse In Charge</th>
                     <th>Ward Type</th>
+                    <th>Edit</th>
+                    <th>Delete</th>
                 </tr>
             </tfoot>
         </table>

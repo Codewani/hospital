@@ -7,7 +7,10 @@ class ward(models.Model):
     ward_name = models.CharField(max_length = 25)
     number_beds = models.IntegerField()
     nurse_in_charge = models.CharField(max_length = 20)
-    ward_type = models.CharField(max_length = 20, blank=True, null=True)
+    ward_type = models.CharField(max_length = 20, null=True)
+
+    def __str__(self):
+        return self.ward_id
 
 
 class patient(models.Model):
@@ -20,4 +23,4 @@ class patient(models.Model):
     admission = models.DateField()
     DOB = models.DateField()
     ward_id = models.ForeignKey(ward, on_delete=models.CASCADE)
-    next_of_kin = models.CharField(max_length = 30, blank = True, null = True)
+    next_of_kin = models.CharField(max_length = 30, null = True)
